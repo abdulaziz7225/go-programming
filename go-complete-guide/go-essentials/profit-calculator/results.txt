@@ -1,0 +1,3 @@
+Earning before tax : 3500.0
+Earning after tax : 2205.0
+Ratio : 1.587
