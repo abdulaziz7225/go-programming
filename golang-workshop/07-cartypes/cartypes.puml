@@ -1,0 +1,46 @@
+@startuml
+namespace 07-cartypes {
+    class "07-cartypes.LicensePlate" << (T, #FF7700) >>  {
+    }
+    class "Audi" << (S,Aquamarine) >> {
+        + LicensePlate LicensePlate
+        + Transmission Transmission
+
+        + StartEngine() error
+        + Accelerate() 
+        + Brake() 
+
+    }
+    interface "Car"  {
+        + StartEngine() error
+        + Accelerate() 
+        + Brake() 
+
+    }
+    class "Porsche" << (S,Aquamarine) >> {
+        + LicensePlate LicensePlate
+        + Transmission Transmission
+
+        + StartEngine() error
+        + Accelerate() 
+        + Brake() 
+
+    }
+    class "Transmission" << (S,Aquamarine) >> {
+        + Rotations int
+        + EngagedGear int
+
+    }
+}
+"__builtin__.string" #.. "07-cartypes.LicensePlate"
+
+"07-cartypes.Car" <|-- "07-cartypes.Audi"
+"07-cartypes.Car" <|-- "07-cartypes.Porsche"
+
+"07-cartypes.Audi" o-- "07-cartypes.LicensePlate"
+"07-cartypes.Audi" o-- "07-cartypes.Transmission"
+"07-cartypes.Porsche" o-- "07-cartypes.LicensePlate"
+"07-cartypes.Porsche" o-- "07-cartypes.Transmission"
+
+
+@enduml

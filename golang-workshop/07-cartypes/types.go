@@ -1,5 +1,7 @@
 package cartypes
 
+//go:generate goplantuml -aggregate-private-members -show-aggregations -show-compositions -output cartypes.puml .
+
 type LicensePlate string
 
 type Car interface {
