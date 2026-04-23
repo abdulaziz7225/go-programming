@@ -1,0 +1,8 @@
+curl -X POST http://localhost:8080/api/audi \
+-H "Content-Type: application/json" \
+-d '{"Plate": "RUST-1.95", "SpeedInKmH": 250, "engineStarted": true}' \
+-u "foo:bar" | jq
+
+
+curl -X GET http://localhost:8080/api/cars \
+-u "foo:bar" | jq
