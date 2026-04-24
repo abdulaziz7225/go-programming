@@ -1,0 +1,24 @@
+syntax = "proto3";
+package proto;
+
+//Alternative with google
+//import "google/protobuf/empty.proto";
+
+option go_package = "golang.source-fellows.com/training/carman-grpc/pkg/proto";
+
+message Car {
+  string vin = 1;
+  string color = 2;
+}
+
+message CarList {
+  repeated Car cars = 1;
+}
+
+message Void {}
+
+service CarService {
+  rpc createCar(Car) returns(Void) {};
+  rpc getCars(Void) returns(CarList) {};
+  rpc getAllCars(Void) returns(stream Car){};
+}
