@@ -1,0 +1,4 @@
+### Get Cars with Trace ID (Context Injection Test)
+GET http://localhost:8080/api/cars
+Authorization: Basic foo bar
+x-trace-id: test-trace-123

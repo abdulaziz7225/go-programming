@@ -1,0 +1,32 @@
+### Add a new Audi
+POST http://localhost:8080/api/audi
+Authorization: Basic foo bar
+Content-Type: application/json
+
+{
+    "Plate": "RUST-1.95",
+    "SpeedInKmH": 250,
+    "EngineStarted": true
+}
+
+### Add a new Audi
+POST http://localhost:8080/api/audi
+Authorization: Basic foo bar
+Content-Type: application/json
+
+{
+    "Plate": "GOLANG-1.26",
+    "SpeedInKmH": 200,
+    "EngineStarted": false
+}
+
+### Add a new Audi
+POST http://localhost:8080/api/audi
+Authorization: Basic foo bar
+Content-Type: application/json
+
+{
+    "Plate": "PYTHON-3.14",
+    "SpeedInKmH": 150,
+    "EngineStarted": false
+}

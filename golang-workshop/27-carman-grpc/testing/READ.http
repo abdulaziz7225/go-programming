@@ -1,0 +1,9 @@
+### Get Cars in JSON format
+GET http://localhost:8080/api/cars
+Authorization: Basic foo bar
+Accept: application/json
+
+### Get Cars in XML format
+GET http://localhost:8080/api/cars
+Authorization: Basic foo bar
+Accept: application/xml

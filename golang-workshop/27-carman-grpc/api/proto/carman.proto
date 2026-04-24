@@ -1,0 +1,28 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "golang.source-fellows.com/training/carman/v6/api/proto";
+
+message Transmission {
+  int32 rotations = 1;
+  int32 engaged_gear = 2;
+}
+
+message Audi {
+  string plate = 1;
+  Transmission transmission = 2;
+  int32 speed_in_km_h = 3;
+  bool engine_started = 4;
+}
+
+message CarList {
+  // For simplicity in this example, we return a list of Audis.
+  repeated Audi cars = 1; 
+}
+
+message Void {}
+
+service CarService {
+  rpc AddAudi(Audi) returns(Void) {};
+  rpc GetCars(Void) returns(CarList) {};
+}
