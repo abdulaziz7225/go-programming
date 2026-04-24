@@ -1,6 +1,7 @@
 package http
 
 import (
+	"context"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -32,8 +33,12 @@ func handlePing(context *gin.Context) {
 
 func handleGetCars(repository carman.CarRepository) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		ctx := c.Request.Context()
+		xtraceId := c.GetHeader("x-trace-id")
+		ctx := context.WithValue(c.Request.Context(), "x-trace-id", xtraceId)
+
+		// ctx := c.Request.Context()
 		cars, err := repository.GetAllCars(ctx)
+		
 		if err != nil {
 			// Replace log.Println(err) with logrus:
 			logrus.WithContext(ctx).WithError(err).Error("Failed to fetch cars from repository")
@@ -49,7 +54,9 @@ func handleGetCars(repository carman.CarRepository) gin.HandlerFunc {
 
 func handleAddNewCar(repository carman.CarRepository) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		ctx := c.Request.Context()
+		xtraceId := c.GetHeader("x-trace-id")
+		ctx := context.WithValue(c.Request.Context(), "x-trace-id", xtraceId)
+
 		var newAudi model.Audi
 
 		if err := c.ShouldBindJSON(&newAudi); err != nil {
